@@ -1,11 +1,21 @@
-group 'com.learning'
-version '1.0.0'
+buildscript {
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:1.4.0.RELEASE")
+    }
+}
+apply plugin: 'spring-boot'
 
 apply plugin : 'scala'
 apply plugin : 'idea'
 
+group 'com.learning'
+version '1.0.0'
+
+
 repositories {
-    mavenCentral()
+    maven {
+        url "http://repo.fideliseducation.com:8080/nexus/content/groups/public"
+    }
 }
 dependencies {
     compile 'org.scala-lang:scala-library:2.11.1'

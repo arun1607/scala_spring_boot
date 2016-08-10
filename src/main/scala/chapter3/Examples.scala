@@ -7,15 +7,9 @@ import scala.io.Source
   */
 object Examples {
   def main(args: Array[String]): Unit = {
-    def widthOfLine(s: String) = s.length.toString.length
-    val fileLines: List[String] = Source.fromFile("/Users/amits/fidelis/repository/k2ng/sonar-project.properties").getLines().toList
-    val longestLine: String = fileLines.reduceLeft((a, b) => if (a.length > b.length) a else b)
-    val maxWidth = widthOfLine(longestLine)
-    for (line <- fileLines) {
-      val numSpaces = maxWidth - widthOfLine(line)
-      val padding = " " * numSpaces
-      println(padding + line.length + " | " + line)
-    }
+    val checkSum: Int = CheckSumAccumulator.calculate("hello")
+    println(checkSum)
+
   }
 }
 
