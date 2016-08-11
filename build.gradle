@@ -1,15 +1,23 @@
 buildscript {
+    repositories {
+        maven {
+            url "http://repo.fideliseducation.com:8080/nexus/content/groups/public"
+        }
+    }
     dependencies {
         classpath("org.springframework.boot:spring-boot-gradle-plugin:1.4.0.RELEASE")
     }
 }
 apply plugin: 'spring-boot'
 
-apply plugin : 'scala'
-apply plugin : 'idea'
+apply plugin: 'scala'
+apply plugin: 'idea'
 
 group 'com.learning'
 version '1.0.0'
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
 
 
 repositories {
@@ -19,4 +27,7 @@ repositories {
 }
 dependencies {
     compile 'org.scala-lang:scala-library:2.11.1'
+    compile("org.springframework.boot:spring-boot-starter-data-jpa")
+    compile("com.h2database:h2")
+    testCompile("junit:junit")
 }
